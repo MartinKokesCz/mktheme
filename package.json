@@ -1,0 +1,17 @@
+{
+  "name": "customtheme",
+  "version": "1.0.0",
+  "description": "This is a custom theme based on skeleton by martinkokes.cz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.0.48",
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1"
+  }
+}

@@ -1,0 +1,245 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 140px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 140px;
+    background: $gray-dark;
+    color: $white;
+}
+
+.footer .row > div {
+    /*line-height: 130px;*/
+}
+
+
+.m_rawengulk {
+    font-family: $font-family-sans-serif;
+}
+
+.c_sticker {
+    background: $box-color url("../images/sticker-corner.png") no-repeat top right;
+    margin-bottom: 30px;
+    height: 100%;
+
+    @extend .py-3;
+
+    h2 {
+        @extend .px-3;
+        border-bottom: 1px solid $gray-dark;
+    }
+
+    & > div {
+        @extend .px-0;
+    }
+
+    & p {
+        @extend .px-3;
+        font-size: 14px;
+    }
+}
+
+.c_sticker-new {
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    padding-top: 0 !important;
+    @extend .c_sticker;
+
+    .btn  {
+        position: relative;
+        margin-bottom: -47px;
+    }
+
+}
+
+.c_benefit {
+
+    & * {
+        text-transform: uppercase;
+        color: $brand-primary;
+    }
+
+    & p {
+        font-size: 14px;
+    }
+
+    &-image-container {
+        height: 80px;
+        @extend .mb-3;
+    }
+
+    @extend .text-center;
+}
+
+.c_box-1 {
+    @extend .pt-3;
+    background: $box-color;
+
+
+
+    a {
+        color: #de6b6b;
+        text-decoration: underline;
+    }
+
+    strong {
+        text-transform: uppercase;
+    }
+
+    a,
+    p {
+        font-size: 17px;  
+    }
+}
+
+.c_sticker-type {
+    background: $box-color-2;
+    font-size: 12px;
+    font-weight: 300;
+    height: 350px;
+
+    @extend .py-4;
+
+
+    $sticker-type-color-1: #de6b6b;
+    $sticker-type-color-2: #2e77bb;
+
+    h3 {
+        text-transform: uppercase;
+    }
+
+    .description {
+        list-style-type: none;
+        @extend .pl-0;
+
+        li {
+            line-height: 22px;
+            &.type-1:before {
+                color: $sticker-type-color-1;
+            }
+
+            &.type-2:before {
+                color: $sticker-type-color-2;
+            }
+
+        }
+
+        li:before {
+            content: '■';
+            float:left;
+            margin-right: 5px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: -2px;
+        }
+
+    }
+
+    .bar {
+        display: block;
+        font-size: 90%;
+        @extend .pr-2;
+        @extend .mb-1;
+
+        text-align: right;
+
+        &-1 {
+            color: #fff;
+            background: $sticker-type-color-1;
+        }
+
+        &-2 {
+            color: #fff;
+            background: $sticker-type-color-2;
+        }
+    }
+
+}
+
+.c_warehouse {
+    @extend .pb-4;
+    @extend .pt-1;
+
+    background: $box-color-2;
+
+    line-height: 24px;
+    height: 100%;
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 22px;
+
+    }
+
+    p, small {
+        font-weight: 300;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a.contact-link {
+        color: $gray-dark;
+        font-size: 22px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+.c_headline {
+    display:block;
+    width: 80%;
+    height: 1px;
+    background: $gray-dark;
+}
+
+.c_map-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+
+    & > *{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.c_date-tag {
+    @extend .px-3;
+    @extend .py-2;
+    @extend .ml-4;
+    @extend .mb-3;
+    display: inline-block;
+
+    background: #de6b6b;
+    color: #fff;
+    text-transform: uppercase;
+}
