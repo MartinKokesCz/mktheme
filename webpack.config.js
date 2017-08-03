@@ -1,21 +1,49 @@
+const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    js: './assets/js/main.js',
+    scss: './assets/scss/main.scss',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: "source-map",
   module: {
     rules: [{
       test: /\.scss$/,
-      use: [{
-        loader: "style-loader" // creates style nodes from JS strings
-      }, {
-        loader: "css-loader" // translates CSS into CommonJS
-      }, {
-        loader: "sass-loader" // compiles Sass to CSS
-      }]
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [{
+            // Autoprefix the compiled CSS from main.scss
+            // then minimize it
+            loader: 'postcss-loader',
+            options: {
+              plugins: (loader) => [
+                require('autoprefixer')(),
+                require('cssnano')()
+              ]
+            }
+          },
+          {
+            // First compile SASS to CSS
+            loader: 'sass-loader'
+          }
+        ]
+      })
     }]
-  }
-};
+  },
+  plugins: [
+    // final CSS file output
+    new ExtractTextPlugin("css/main.css"),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true
+    }),
+  ]
+}
