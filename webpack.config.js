@@ -20,6 +20,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin(bsStyles);
 
+// Libraries defines for inclusion
 const defineLibs = new webpack.DefinePlugin({
   FANCYBOX: JSON.stringify(bsFancybox)
 })
