@@ -3,7 +3,7 @@
 //==============================================================================
 const bsAssetsFolder = 'assets';
 const bsDistFolder = 'dist';
-const bsAssetsIndex = './' + bsAssetsFolder + 'index.js';
+const bsAssetsIndex = './' + bsAssetsFolder + '/index.js';
 const bsStyles = 'css/main.css';
 const bsScripts = 'js/main.js';
 
