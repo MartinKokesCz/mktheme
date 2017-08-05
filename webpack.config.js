@@ -1,24 +1,43 @@
+//==============================================================================
+//                                BUILD SETUP
+//==============================================================================
+const bsAssetsFolder = 'assets';
+const bsDistFolder = 'dist';
+const bsAssetsIndex = './' + bsAssetsFolder + 'index.js';
+const bsStyles = 'css/main.css';
+const bsScripts = 'js/main.js';
+
+// Select libraries you should use
+const bsFancybox = true;
+
+//==============================================================================
+//                                WEBPACK MAGIC
+//==============================================================================
 const webpack = require('webpack');
 const path = require('path');
+
+// Extract single file with styles for production use to "dist" folder
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCSS = new ExtractTextPlugin(bsStyles);
+
+const defineLibs = new webpack.DefinePlugin({
+  FANCYBOX: JSON.stringify(bsFancybox)
+})
 
 module.exports = {
-  entry: {
-    js: './assets/js/main.js',
-    scss: './assets/scss/main.scss',
-  },
+  entry: bsAssetsIndex,
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: bsScripts,
+    path: path.resolve(__dirname, bsDistFolder)
   },
   devtool: "source-map",
   module: {
     rules: [{
       test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
+      use: extractCSS.extract({
         fallback: "style-loader",
         use: [{
-            // Autoprefix the compiled CSS from main.scss
+            // Autoprefix the compiled main.css from main.scss
             // then minimize it
             loader: 'postcss-loader',
             options: {
@@ -37,13 +56,7 @@ module.exports = {
     }]
   },
   plugins: [
-    // final CSS file output
-    new ExtractTextPlugin("css/main.css"),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      sourceMap: true
-    }),
+    extractCSS,
+    defineLibs
   ]
 }

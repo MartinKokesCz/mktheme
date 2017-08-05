@@ -1,9 +1,16 @@
+body
+{
+    display: flex;
+}
+
+
 html
 {
     position: relative;
 
     min-height: 100%;
 }
+
 body
 {
     /* Margin bottom by footer height */
