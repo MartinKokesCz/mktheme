@@ -23,7 +23,7 @@ const extractCSS = new ExtractTextPlugin(bsStyles);
 const defineLibs = new webpack.DefinePlugin({
   FANCYBOX: JSON.stringify(bsFancybox)
 })
-
+// yes 5
 module.exports = {
   entry: bsAssetsIndex,
   output: {
