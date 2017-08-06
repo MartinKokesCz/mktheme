@@ -1,41 +1,50 @@
-body
-{
-    display: flex;
+body {
+  display: flex;
 }
 
-
-html
-{
-    position: relative;
-
-    min-height: 100%;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-body
-{
-    /* Margin bottom by footer height */
-    margin-bottom: 140px;
+.c_body {
+  /* Margin bottom by footer height */
+  margin-bottom: 140px;
+  background-color: #fff;
+  background-image: url('../images/bg.jpg');
 }
 
-strong
-{
-    font-weight: bold;
+.c_navbar {
+  padding-bottom: 0;
+  background-color: #fff;
 }
 
-.footer
-{
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 140px;
-
-    color: $white;
-    background: $gray-dark;
+.c_navbar__item {
+  @extend .mr-1;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }
 
-.footer .row > div
-{
-    /*line-height: 130px;*/
+.c_navbar__link {
+  font-size: 1.2rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 140px;
+  color: $white;
+  background: $gray-dark;
+}
+
+.footer .row > div {
+  /*line-height: 130px;*/
 }

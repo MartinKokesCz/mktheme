@@ -13,9 +13,11 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.0.48",
     "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1",
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "import-loader": "^1.0.1",

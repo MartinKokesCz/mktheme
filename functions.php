@@ -3,6 +3,8 @@
 // Disable admin bar, when logged in
 show_admin_bar(false);
 
+include __DIR__ . '/functions/common.php';
+
 // Custom nav Walker for Bootstrap 4
 include __DIR__ . '/classes/bs4nav_walker.php';
 

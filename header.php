@@ -23,12 +23,13 @@
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-  <?php wp_head(); ?>
+<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('c_body'); ?>>
 
-  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top c_navbar">
+    <div class="container">
         <button
         class="navbar-toggler navbar-toggler-right" type="button"
         data-toggle="collapse" data-target="#navbarCollapse"
@@ -36,22 +37,21 @@
         aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Fixed navbar</a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+        <a class="navbar-brand ml-4" href="#">
+          <?php printPictureSVG("logo", "Logo ZŠ Mnichovická", "img-fluid"); ?>
+        </a>
+        <div class="collapse navbar-collapse align-self-end" id="navbarCollapse">
+<?php
+          wp_nav_menu(array(
+              'theme_location' => 'navbar',
+              'container' => false,
+              'menu_class' => 'nav navbar-nav ml-auto',
+              'fallback_cb' => '__return_false',
+              'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+              'depth' => 2,
+              'walker' => new bootstrap_4_walker_nav_menu()
+            ));
+?>
+        </div>
         </div>
       </nav>

@@ -3,6 +3,8 @@
 //==============================================================================
 const bsAssetsFolder = 'assets';
 const bsDistFolder = 'dist';
+const bsFontsFolder = 'fonts';
+const bsImagesFolder = 'images';
 const bsAssetsIndex = './' + bsAssetsFolder + '/index.js';
 const bsStyles = 'css/main.css';
 const bsScripts = 'js/main.js';
@@ -20,11 +22,21 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin(bsStyles);
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const copyPluginImages = new CopyWebpackPlugin([{
+  from: path.resolve(__dirname, bsAssetsFolder + '/' + bsImagesFolder),
+  to: path.resolve(__dirname, bsDistFolder + '/' + bsImagesFolder),
+}]);
+
+const copyPluginFonts = new CopyWebpackPlugin([{
+  from: path.resolve(__dirname, 'node_modules/font-awesome/' + bsFontsFolder),
+  to: path.resolve(__dirname, bsDistFolder + '/' + bsFontsFolder),
+}]);
+
 const defineLibs = new webpack.DefinePlugin({
   FANCYBOX: JSON.stringify(bsFancybox)
-})
-// yes 5zskolin
-// next level
+});
+
 module.exports = {
   entry: bsAssetsIndex,
   output: {
@@ -58,6 +70,8 @@ module.exports = {
   },
   plugins: [
     extractCSS,
-    defineLibs
+    defineLibs,
+    copyPluginImages,
+    copyPluginFonts
   ]
 }
