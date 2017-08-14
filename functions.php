@@ -3,6 +3,9 @@
 // Disable admin bar, when logged in
 show_admin_bar(false);
 
+// Remove meta generator with WP version for security reasons
+remove_action('wp_head', 'wp_generator');
+
 include __DIR__ . '/functions/common.php';
 
 // Custom nav Walker for Bootstrap 4
