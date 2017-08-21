@@ -8,11 +8,13 @@
     <div class="container">
 
 
-aSDASDA
+aSDASDAff
 
     </div>
 
 </footer>
 <?php wp_footer(); ?>
+<!-- js-begin -->
+<!-- js-end -->
 </body>
 </html>

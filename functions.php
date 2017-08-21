@@ -3,6 +3,14 @@
 // Disable admin bar, when logged in
 show_admin_bar(false);
 
+// Remove WP version for security reasons
+include __DIR__ . '/functions/remove_version.php';
+// .. from meta generator
+add_filter('the_generator', 'remove_version_meta');
+// .. from styles and scripts
+add_filter('style_loader_src', 'remove_version_asset', 9999);
+add_filter('script_loader_src', 'remove_version_asset', 9999);
+
 include __DIR__ . '/functions/common.php';
 
 // Custom nav Walker for Bootstrap 4
@@ -23,3 +31,5 @@ add_action('wp_enqueue_scripts', 'custom_theme_styles');
 // Add scripts
 include __DIR__ . '/functions/custom_theme_scripts.php';
 add_action('wp_enqueue_scripts', 'custom_theme_scripts');
+
+remove_filter('template_redirect', 'redirect_canonical');

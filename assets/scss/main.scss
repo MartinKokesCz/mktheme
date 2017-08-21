@@ -1,8 +1,9 @@
 @charset 'UTF-8';
 
+@import '~bootstrap/scss/functions';
 @import 'custom_variables';
+@import "~bootstrap/scss/bootstrap";
 
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'bootstrap_extends';
 
 
@@ -12,9 +13,13 @@
 
 /* example with .scss extension */
 /* @import "../fonts/open-sans/open-sans.scss"; */
-@import '../../node_modules/font-awesome/scss/font-awesome.scss';
+//@import '~font-awesome/scss/font-awesome.scss';
 
 @import 'wordpress_core';
 
 @import 'components';
-@import 'helpers';
+//@import 'helpers';
+
+footer {
+  //background: #fff !important;
+}
