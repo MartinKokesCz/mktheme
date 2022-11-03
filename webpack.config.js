@@ -17,8 +17,10 @@ const webpack = require('webpack');
 const path = require('path');
 
 // Extract single file with styles for production use to "dist" folder
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractCSS = new ExtractTextPlugin(bsStyles);
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const extractCSS = new MiniCssExtractPlugin({
+  filename: bsStyles
+});
 
 // Libraries defines for inclusion
 const defineLibs = new webpack.DefinePlugin({
@@ -35,7 +37,15 @@ module.exports = {
   module: {
     rules: [{
       test: /\.scss$/,
-      use: extractCSS.extract({
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader
+        },
+        "css-loader",
+        "sass-loader"
+      ]
+      
+      /*extractCSS.extract({
         fallback: "style-loader",
         use: [{
             // Autoprefix the compiled main.css from main.scss
@@ -53,7 +63,7 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
-      })
+      })*/
     }]
   },
   plugins: [

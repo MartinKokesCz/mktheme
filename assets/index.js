@@ -21,10 +21,7 @@ require('./scss/main.scss');
 //==============================================================================
 //                                  SCRIPTS
 //==============================================================================
-//import '../node_modules/jquery/dist/jquery.min.js';
-//';
-
-if (FANCYBOX) {
+/*if (FANCYBOX) {
   require('script-loader!../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js');
-}
-require('uglify-loader!./js/main.js');
+}*/
+

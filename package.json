@@ -5,29 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "dev": "webpack --config webpack.config.js --mode=development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fancyapps/fancybox": "^3.0.48",
-    "bootstrap": "^4.0.0-alpha.6",
-    "jquery": "^3.2.1"
+    "@fancyapps/fancybox": "^3.5.7",
+    "bootstrap": "^5.2.2"
   },
   "devDependencies": {
-    "cssnano": "^3.10.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.14",
     "import-loader": "^1.0.1",
-    "imports-loader": "^0.7.1",
-    "node-sass": "^4.5.3",
-    "postcss-import": "^10.0.0",
-    "postcss-loader": "^2.0.6",
-    "sass-loader": "^6.0.6",
-    "script-loader": "^0.7.0",
-    "style-loader": "^0.18.2",
-    "uglify-loader": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.4.1"
+    "imports-loader": "^4.0.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
+    "postcss-import": "^15.0.0",
+    "postcss-loader": "^7.0.1",
+    "sass-loader": "^13.1.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
